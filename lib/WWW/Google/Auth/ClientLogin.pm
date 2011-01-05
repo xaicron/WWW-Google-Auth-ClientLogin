@@ -176,7 +176,7 @@ sub authenticate {
 	$params{'logintoken'} 	= $self -> {'logintoken'} if $self -> {'logintoken'};
 	$params{'logincaptcha'} = $self -> {'logincaptcha'} if $self -> {'logincaptcha'};
 
-	my $response 	= $ua -> request(POST $url, [%form]) -> as_string;
+	my $response 	= $ua -> request(POST $url, [%params]) -> as_string;
 
 	my $status  	= (split / /,(split /\n/, $response)[0])[1];
 	my $body	= (split /\n\n/, $response)[1];
