@@ -69,12 +69,12 @@ Specifies the service to request authorization for.
 
 A list of available services can be found at L<http://code.google.com/intl/en/apis/base/faq_gdata.html#clientlogin>.
 
-=item B<token>
+=item B<captcha_token>
 
 Specifies the CAPTCHA token received after a login failure with the error
 code 'CaptchaRequired' (optional).
 
-=item B<captcha>
+=item B<captcha_login>
 
 Specifies the user's answer to the CAPTCHA challenge identified by
 "token" (optional).
@@ -110,6 +110,14 @@ sub new {
 		$self -> {'service'} = $params{'service'};
 	} else {
 		croak("Err: set a valid service");
+	}
+	
+	if ($params{'captcha_token'}) {
+		$self -> {'logintoken'} = $params{'captcha_token'};
+	}
+	
+	if ($params{'captcha_login'}) {
+		$self -> {'logincaptcha'} = $params{'captcha_login'};
 	}
 
     bless($self, $class);
@@ -164,6 +172,9 @@ sub authenticate {
 		      'Passwd',		$self -> {'pwd'},
 		      'service',	$self -> {'service'},
 		      'source',		$self -> {'source'});
+	
+	$params{'logintoken'} 	= $self -> {'logintoken'} if $self -> {'logintoken'};
+	$params{'logincaptcha'} = $self -> {'logincaptcha'} if $self -> {'logincaptcha'};
 
 	my $response 	= $ua -> request(POST $url, [%form]) -> as_string;
 
