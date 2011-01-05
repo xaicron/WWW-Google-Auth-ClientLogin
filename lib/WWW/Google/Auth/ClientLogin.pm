@@ -9,7 +9,7 @@ use strict;
 
 =head1 NAME
 
-WWW::Google::Auth::ClientLogin - Support module to Google ClientLogin authorization
+WWW::Google::Auth::ClientLogin - Perl module to interact with Google's ClientLogin protocol
 
 =head1 SYNOPSIS
 
@@ -26,9 +26,14 @@ WWW::Google::Auth::ClientLogin - Support module to Google ClientLogin authorizat
 
 =head1 DESCRIPTION
 
-This module implements the support to Google's ClientLogin authentication
-method for Goodle Data Protocol.
+Google's ClientLogin is a programmatic method for getting authorized access
+to information exchanged with Google services and protected by an user
+account, implemented in the second version of the Goodle Data Protocol.
 
+WWW::Google::Auth::ClientLogin implements the support to such method
+providing an easy-to-use object oriented interface.
+
+For additional information see L<http://code.google.com/intl/it-IT/apis/accounts/docs/AuthForInstalledApps.html>
 
 =head1 METHODS
 
