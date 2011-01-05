@@ -130,7 +130,7 @@ It returns an anonymous hash containing the following values:
 
 Set to 0 if authentication succeded, -1 if not.
 
-=item B<Auth>
+=item B<auth_token>
 
 Authentication token (set if authentication succeded).
 
@@ -142,7 +142,7 @@ A list of error codes can be found at L<http://code.google.com/intl/it-IT/apis/a
 
 =item B<captcha_token>
 
-The token specified to a CAPTCHA challenge (set if error code is 'CaptchaRequired').
+The token specific to a CAPTCHA challenge (set if error code is 'CaptchaRequired').
 
 =item B<captcha_url>
 
@@ -179,7 +179,7 @@ sub authenticate {
 
 		#$out -> {'SID'}    = $1;
 		#$out -> {'LSID'}   = $2;
-		$out -> {'Auth'}   = $3;
+		$out -> {'auth_token'}   = $3;
 	} elsif ($status == 403) {
 		$out -> {'status'} = -1;
 
