@@ -1,8 +1,7 @@
 package WWW::Google::Auth::ClientLogin;
 
 use Carp;
-use LWP::UserAgent;
-use HTTP::Request::Common;
+use HTTP::Tiny;
 
 use warnings;
 use strict;
@@ -164,22 +163,29 @@ with 'http://www.google.com/accounts/' (set if error code is 'CaptchaRequired').
 sub authenticate {
 	my $self = shift;
 
-	my $ua = LWP::UserAgent -> new;
+	my $http = HTTP::Tiny -> new();
 	my $url = 'https://www.google.com/accounts/ClientLogin';
 
-	my %params = ('accountType', 	$self -> {'type'},
-		      'Email',		$self -> {'email'},
-		      'Passwd',		$self -> {'pwd'},
-		      'service',	$self -> {'service'},
-		      'source',		$self -> {'source'});
+	my @params;
 
-	$params{'logintoken'} 	= $self -> {'logintoken'} if $self -> {'logintoken'};
-	$params{'logincaptcha'} = $self -> {'logincaptcha'} if $self -> {'logincaptcha'};
+	my $account_type	= 'accountType='.$self -> {'type'};
+	my $email		= 'Email='.$self -> {'email'};
+	my $passwd		= 'Passwd='.$self -> {'pwd'};
+	my $service		= 'service='.$self -> {'service'};
+	my $src			= 'source='.$self -> {'source'};
 
-	my $response 	= $ua -> request(POST $url, [%params]) -> as_string;
+	push @params, $account_type, $email, $passwd, $service, $src;
 
-	my $status  	= (split / /,(split /\n/, $response)[0])[1];
-	my $body	= (split /\n\n/, $response)[1];
+	push @params, 'logintoken='.$self -> {'logintoken'} if $self -> {'logintoken'};
+	push @params, 'logincaptcha='.$self -> {'logincaptcha'} if $self -> {'logincaptcha'};
+
+	my $response = $http -> request('POST', $url, {
+		content => join("&", @params),
+		headers => {'content-type' => 'application/x-www-form-urlencoded'}
+	});
+
+	my $status  	= $response -> {'status'};
+	my $body	= $response -> {'content'};
 
 	my $out = {};
 
