@@ -87,9 +87,9 @@ sub new {
 	my %params = @_;
 	my $self   = {};
 
-	$self -> {'email'} = $params{'email'} || croak("Err: set a valid email");
-	$self -> {'pwd'}   = $params{'password'} || croak("Err: set a password");
-	$self -> {'src'}   = $params{'source'} || __PACKAGE__ . $WWW::Google::Auth::ClientLogin::VERSION;
+	$self -> {'email'}	= $params{'email'} || croak("Err: set a valid email");
+	$self -> {'pwd'}	= $params{'password'} || croak("Err: set a password");
+	$self -> {'source'}	= $params{'source'} || __PACKAGE__ . $WWW::Google::Auth::ClientLogin::VERSION;
 
 	my @valid_account_types = ('GOOGLE', 'HOSTED', 'HOSTED_OR_GOOGLE');
 
