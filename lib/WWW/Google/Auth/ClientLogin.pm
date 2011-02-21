@@ -15,11 +15,12 @@ WWW::Google::Auth::ClientLogin - Perl module to interact with Google's ClientLog
     use WWW::Google::Auth::ClientLogin;
 
     my $auth = WWW::Google::Auth::ClientLogin -> new(
-		email 		=> 'user@gmail.com',
-		password 	=> 'UserPassword',
-		source		=> 'MyApp-0.8',
-		type		=> 'GOOGLE',
-		service 	=> 'writely');
+      email    => 'user@gmail.com',
+      password => 'UserPassword',
+      source   => 'MyApp-0.8',
+      type     => 'GOOGLE',
+      service  => 'writely'
+    );
 
     my $auth_token = $auth -> authenticate -> {'auth_token'};
 
