@@ -219,44 +219,6 @@ sub authenticate {
 
 Alessandro Ghedini <alexbio@cpan.org>
 
-=head1 BUGS
-
-Please report any bugs or feature requests at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=WWW-Google-Auth-ClientLogin>.
-I will be notified, and then you'll automatically be notified of progress
-on your bug as I make changes.
-
-=head1 SUPPORT
-
-You can find documentation for this module with the perldoc command.
-
-    perldoc WWW::Google::Auth::ClientLogin
-
-You can also look for information at:
-
-=over 4
-
-=item * GitHub page
-
-L<http://github.com/AlexBio/WWW-Google-Auth-ClientLogin>
-
-=item * RT: CPAN's request tracker
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=WWW-Google-Auth-ClientLogin>
-
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/WWW-Google-Auth-ClientLogin>
-
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/WWW-Google-Auth-ClientLogin>
-
-=item * Search CPAN
-
-L<http://search.cpan.org/dist/WWW-Google-Auth-ClientLogin/>
-
-=back
-
 =head1 LICENSE AND COPYRIGHT
 
 Copyright 2011 Alessandro Ghedini.
