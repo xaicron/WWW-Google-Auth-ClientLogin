@@ -71,6 +71,7 @@ supported:
     Google Analytics Data APIs    analytics
     Google Apps APIs              apps
     Google Base Data API          gbase
+    Google Custom Search API      cprose
     Google Sites Data API         jotspot
     Blogger Data API              blogger
     Book Search Data API          print
@@ -124,7 +125,7 @@ sub new {
 	my @valid_services = (
 		'analytics', 'apps', 'gbase',
 		'jotspot', 'blogger', 'print',
-		'cl', 'codesearch', 'cp',
+		'cl', 'codesearch', 'cp', 'cprose',
 		'writely', 'finance', 'mail',
 		'health', 'weaver', 'local',
 		'lh2', 'annotateweb', 'wise',
