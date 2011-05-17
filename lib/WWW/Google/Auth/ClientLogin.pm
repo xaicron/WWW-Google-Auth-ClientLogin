@@ -121,11 +121,15 @@ sub new {
 		$self -> {'type'} = 'HOSTED_OR_GOOGLE';
 	}
 
-	my @valid_services = ('analytics', 'apps', 'gbase', 'jotspot',
-			      'blogger', 'print', 'cl', 'codesearch', 'cp',
-			      'writely', 'finance', 'mail', 'health', 'weaver',
-			      'local', 'lh2', 'annotateweb', 'wise', 'sitemaps',
-			      'youtube');
+	my @valid_services = (
+		'analytics', 'apps', 'gbase',
+		'jotspot', 'blogger', 'print',
+		'cl', 'codesearch', 'cp',
+		'writely', 'finance', 'mail',
+		'health', 'weaver', 'local',
+		'lh2', 'annotateweb', 'wise',
+		'sitemaps', 'youtube'
+	);
 
 	if (grep {$_ eq $params{'service'}} @valid_services) {
 		$self -> {'service'} = $params{'service'};
