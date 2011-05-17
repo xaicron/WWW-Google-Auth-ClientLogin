@@ -22,7 +22,9 @@ WWW::Google::Auth::ClientLogin - Perl module to interact with Google's ClientLog
       service  => 'writely'
     );
 
-    my $auth_token = $auth -> authenticate -> {'auth_token'};
+    my $auth = $auth -> authenticate;
+
+    die $auth -> {'error'} if $auth -> {'status'} < 0;
 
 =head1 DESCRIPTION
 
