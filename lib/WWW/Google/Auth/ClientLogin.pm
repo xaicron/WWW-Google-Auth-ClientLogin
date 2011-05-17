@@ -65,9 +65,30 @@ Possible values are GOOGLE, HOSTED or HOSTED_OR_GOOGLE (default).
 
 =item B<service>
 
-Specifies the service to request authorization for.
+Specifies the service to request authorization for. The following services are
+supported:
 
-A list of available services can be found at L<http://code.google.com/intl/en/apis/base/faq_gdata.html#clientlogin>.
+    Google Analytics Data APIs    analytics
+    Google Apps APIs              apps
+    Google Base Data API          gbase
+    Google Sites Data API         jotspot
+    Blogger Data API              blogger
+    Book Search Data API          print
+    Calendar Data API             cl
+    Google Code Search Data API   codesearch
+    Contacts Data API             cp
+    Documents List Data API       writely
+    Finance Data API              finance
+    Gmail Atom feed               mail
+    Health Data API               health
+    Maps Data APIs                local
+    Picasa Web Albums Data API    lh2
+    Sidewiki Data API             annotateweb
+    Spreadsheets Data API         wise
+    Webmaster Tools API           sitemaps
+    YouTube Data API              youtube
+
+Additional info can be found at L<http://code.google.com/intl/en/apis/base/faq_gdata.html#clientlogin>.
 
 =item B<captcha_token>
 
